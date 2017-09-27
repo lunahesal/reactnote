@@ -3,9 +3,3 @@
 ```
 npm start
 ```
-
-部署到 github pages
-
-```
-npm run publish
-```
