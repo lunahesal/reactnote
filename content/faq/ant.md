@@ -189,3 +189,30 @@ http://digicity-1253322599.costj.myqcloud.com/ant-21-orders.mp4
 视频：ant-22-orders-more
 
 http://digicity-1253322599.costj.myqcloud.com/ant-22-orders-more.mp4
+
+### 用户系统
+
+视频：ant-23-user
+
+http://digicity-1253322599.costj.myqcloud.com/ant-23-user.mp4
+
+### 引入 redux store
+
+视频： ant-24-redux-store
+http://digicity-1253322599.costj.myqcloud.com/ant-24-redux-store.mp4
+
+### redux 修改 state
+
+视频：ant-25-redux-reducer
+http://digicity-1253322599.costj.myqcloud.com/ant-25-redux-reducer.mp4
+
+### 组件通信
+
+视频：ant-26-redux-update
+http://digicity-1253322599.costj.myqcloud.com/ant-26-redux-update.mp4
+
+### 订阅数据修改
+
+视频：ant-27-redux-subscribe
+
+http://digicity-1253322599.costj.myqcloud.com/ant-27-redux-subscribe.mp4
