@@ -14,8 +14,6 @@
 props: ['title'],
 ```
 
-commit: static props
-
 ### 动态属性
 
 上面的方式，只能传入固定值，而实际中，我们经常需要传变量。
@@ -38,4 +36,8 @@ commit: static props
 
 然后定义 title 这个 state 值，使用即可。
 
-commit: dynamic props
+commit: props
+
+### 视频
+
+http://digicity-1253322599.costj.myqcloud.com/props.mp4

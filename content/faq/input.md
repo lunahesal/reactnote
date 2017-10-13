@@ -44,12 +44,6 @@ this.stateName = newValue
     }
 ```
 
-### 提交评论
-
-接下来我们要实现的效果：input 中输入评论内容，点一下按钮，评论显示到页面上。
-
-commit: input
-
 ### 使用 v-model
 
 如果 input 使用 v-model
@@ -62,43 +56,17 @@ commit: input
 
 ```
 handleClick: function () {
-    const input = document.getElementById('addComment')
     this.comments.push({ text: this.text })
     this.text = ''
   }
 ```
 
-### 计算属性
+### 视频
 
-https://cn.vuejs.org/v2/guide/computed.html
+http://digicity-1253322599.costj.myqcloud.com/input.mp4
 
+### commit
 
-如果写成这样：
+https://github.com/happypeter/vue-hello/commits/master
 
-```
-computed: {
-  reversedComments: function () {
-    return this.comments.reverse()
-  }
-},
-```
-
-那么使用 reversedComments 的时候就会表现诡异。原因就是
-执行 reverse() 的时候，this.comments 会被改变。
-
-原因就是 this.comments.push 会永远把新元素添加到数组尾巴上，如果 comments 本身逆序了，那么添加后的结果肯定不是我们需要的。
-
-解决方法：不要对 comments 变量本身执行 reverse() ，而要对 comments 的拷贝进行 reverse() 。
-
-实现对数组的拷贝可以用 slice() 。
-
-```
-const commentsCopy = this.comments.slice(0)
-return commentsCopy.reverse()
-```
-
-或者直接简写为
-
-```
-return this.comments.slice().reverse()
-```
+input

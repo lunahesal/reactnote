@@ -28,4 +28,8 @@ export default new Vuex.Store({
 
 ### 代码
 
-commit: vuex read data from store
+commit: store
+
+### 视频
+
+http://digicity-1253322599.costj.myqcloud.com/store.mp4

@@ -25,4 +25,8 @@ this.$store.commit('MUTATION_NAME', data)
 
 ### 代码
 
-commit: mutation
+commit: mutations
+
+### 视频
+
+http://digicity-1253322599.costj.myqcloud.com/mutations.mp4
