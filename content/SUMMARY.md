@@ -94,3 +94,5 @@
 - [vue 投票系统概述](./faq/vue-vote.md)
 - [添加登录表单](./faq/login-form.md)
 - [Vuex 配合实现登录功能](./faq/vuex-login.md)
+- [添加投票项](./faq/options.md)
+- [实现投票功能](./faq/vote.md)
