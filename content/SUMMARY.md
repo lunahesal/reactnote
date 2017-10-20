@@ -96,3 +96,5 @@
 - [Vuex 配合实现登录功能](./faq/vuex-login.md)
 - [添加投票项](./faq/options.md)
 - [实现投票功能](./faq/vote.md)
+- [统计结果](./faq/vue-chart.md)
+- [部署 voteup](./faq/vue-deploy.md)
