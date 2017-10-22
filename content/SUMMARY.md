@@ -98,3 +98,4 @@
 - [实现投票功能](./faq/vote.md)
 - [统计结果](./faq/vue-chart.md)
 - [部署 voteup](./faq/vue-deploy.md)
+- [进一步学习建议](./faq/next-step.md)

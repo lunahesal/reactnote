@@ -16,3 +16,5 @@ https://www.npmjs.com/package/vue-gh-pages
 - 这样，编译后的输出会保存到项目文件夹下的 doc/ 文件夹中的
 - 接下来登录 https://github.com/happypeter/voteup/settings
 - 到 "GitHub Pages" 一项，把 "Source"（源）设置为 `master branch /doc folder` （ master 分支的顶级位置的 doc 文件夹）
+
+视频：http://digicity-1253322599.costj.myqcloud.com/vue-deploy.mp4
