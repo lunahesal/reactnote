@@ -1,0 +1,1627 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Vuex 配合实现登录功能 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="options.html" />
+    
+    
+    <link rel="prev" href="login-form.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="peter.html">
+            
+                <a href="peter.html">
+            
+                    
+                    谁是 Peter ？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="what-how.html">
+            
+                <a href="what-how.html">
+            
+                    
+                    课程要讲什么？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="gh-pages.html">
+            
+                <a href="gh-pages.html">
+            
+                    
+                    如何用 gh-pages 机制托管一个静态页面？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="nodejs-what.html">
+            
+                <a href="nodejs-what.html">
+            
+                    
+                    什么是 Nodejs/NVM ？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="es6-intro.html">
+            
+                <a href="es6-intro.html">
+            
+                    
+                    什么是 ES6 ？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="o-o-p-what.html">
+            
+                <a href="o-o-p-what.html">
+            
+                    
+                    什么是面向对象编程？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="this.html">
+            
+                <a href="this.html">
+            
+                    
+                    this 的常见使用方式是？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="class-inheritance.html">
+            
+                <a href="class-inheritance.html">
+            
+                    
+                    如何使用类的继承？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="super.html">
+            
+                <a href="super.html">
+            
+                    
+                    super() 是干嘛的？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="es6-module.html">
+            
+                <a href="es6-module.html">
+            
+                    
+                    ES6 模块怎么用？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="let-const.html">
+            
+                <a href="let-const.html">
+            
+                    
+                    为何要发明 let 和 const ？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="destructuring.html">
+            
+                <a href="destructuring.html">
+            
+                    
+                    解构赋值是什么？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="template-str.html">
+            
+                <a href="template-str.html">
+            
+                    
+                    模板字符串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="arrow-function.html">
+            
+                <a href="arrow-function.html">
+            
+                    
+                    胖箭头函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="array-find.html">
+            
+                <a href="array-find.html">
+            
+                    
+                    数组的 find 方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="array-map.html">
+            
+                <a href="array-map.html">
+            
+                    
+                    数组的 map 方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="array-filter.html">
+            
+                <a href="array-filter.html">
+            
+                    
+                    数组的 filter 方法如何用？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="array-reverse.html">
+            
+                <a href="array-reverse.html">
+            
+                    
+                    如何将数组逆序（ reverse ）输出？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="object-assign.html">
+            
+                <a href="object-assign.html">
+            
+                    
+                    如何使用 Object.assign ？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="object-keys.html">
+            
+                <a href="object-keys.html">
+            
+                    
+                    Object.keys 如何用？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="object-spread.html">
+            
+                <a href="object-spread.html">
+            
+                    
+                    什么是对象展开运算符？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" data-path="es-stage.html">
+            
+                <a href="es-stage.html">
+            
+                    
+                    E6/ES7/ES8/Stage0/ES2015/ES2017 都是什么？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.24" data-path="promise.html">
+            
+                <a href="promise.html">
+            
+                    
+                    Promise 是什么？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.25" data-path="coding-style.html">
+            
+                <a href="coding-style.html">
+            
+                    
+                    什么编程风格最棒？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.26" data-path="npm.html">
+            
+                <a href="npm.html">
+            
+                    
+                    npm 是什么？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.27" data-path="nodejs-project.html">
+            
+                <a href="nodejs-project.html">
+            
+                    
+                    如何创建一个 Nodejs 项目？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.28" data-path="create-react-app.html">
+            
+                <a href="create-react-app.html">
+            
+                    
+                    Create-react-app 是什么？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.29" data-path="react-hello-world.html">
+            
+                <a href="react-hello-world.html">
+            
+                    
+                    React 的 Hello World 中都包含哪些要素？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.30" data-path="react-component.html">
+            
+                <a href="react-component.html">
+            
+                    
+                    React 组件是什么？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.31" data-path="react-jsx.html">
+            
+                <a href="react-jsx.html">
+            
+                    
+                    组件中的 JSX 语法怎么用？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.32" data-path="many-components.html">
+            
+                <a href="many-components.html">
+            
+                    
+                    项目如何进行组件化拆分？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.33" data-path="css-org.html">
+            
+                <a href="css-org.html">
+            
+                    
+                    CSS 的组织
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.34" data-path="common-errors.html">
+            
+                <a href="common-errors.html">
+            
+                    
+                    常见运行错误有哪些？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.35" data-path="clear.html">
+            
+                <a href="clear.html">
+            
+                    
+                    关于 clearfix 和 Flexbox
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.36" data-path="props.html">
+            
+                <a href="props.html">
+            
+                    
+                    组件属性如何用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.37" data-path="children.html">
+            
+                <a href="children.html">
+            
+                    
+                    组件 children 是什么？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.38" data-path="flip.html">
+            
+                <a href="flip.html">
+            
+                    
+                    翻转课堂尝试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.39" data-path="events.html">
+            
+                <a href="events.html">
+            
+                    
+                    React 的事件响应怎么玩？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.40" data-path="jsx-complete.html">
+            
+                <a href="jsx-complete.html">
+            
+                    
+                    Atom 中如何 emment 补齐 JSX ？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.41" data-path="state.html">
+            
+                <a href="state.html">
+            
+                    
+                    什么是 state ？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.42" data-path="state-color-dumb.html">
+            
+                <a href="state-color-dumb.html">
+            
+                    
+                    state 案例：div 变色之笨办法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.43" data-path="state-color-smart.html">
+            
+                <a href="state-color-smart.html">
+            
+                    
+                    state 案例：div 变色之聪明办法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.44" data-path="sidebar.html">
+            
+                <a href="sidebar.html">
+            
+                    
+                    state 案例：侧边栏
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.45" data-path="and.html">
+            
+                <a href="and.html">
+            
+                    
+                    与运算符的使用方式是？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.46" data-path="list-key.html">
+            
+                <a href="list-key.html">
+            
+                    
+                    组件内的列表和 key 如何使用？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.47" data-path="pass-handle.html">
+            
+                <a href="pass-handle.html">
+            
+                    
+                    如何向事件处理函数中传递参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.48" data-path="list-mani.html">
+            
+                <a href="list-mani.html">
+            
+                    
+                    如何操作列表上的一个元素？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.49" data-path="layout.html">
+            
+                <a href="layout.html">
+            
+                    
+                    用 children 实现布局组件？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.50" data-path="form.html">
+            
+                <a href="form.html">
+            
+                    
+                    from 受控组件原理？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.51" data-path="react-p1.html">
+            
+                <a href="react-p1.html">
+            
+                    
+                    React 基础第一阶段小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.52" data-path="p1-proj.html">
+            
+                <a href="p1-proj.html">
+            
+                    
+                    第一阶段：项目实训
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.53" data-path="svg.html">
+            
+                <a href="svg.html">
+            
+                    
+                    实训：svg 图标如何用？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.54" data-path="push.html">
+            
+                <a href="push.html">
+            
+                    
+                    create-react-app 项目如何上传到 github ？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.55" data-path="count-down.html">
+            
+                <a href="count-down.html">
+            
+                    
+                    实训：倒计时效果
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.56" data-path="ask.html">
+            
+                <a href="ask.html">
+            
+                    
+                    提问的智慧
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.57" data-path="git-debug.html">
+            
+                <a href="git-debug.html">
+            
+                    
+                    利用 git 辅助调试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.58" data-path="deploy-gh.html">
+            
+                <a href="deploy-gh.html">
+            
+                    
+                    如何部署项目到 gh-pages ？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.59" data-path="auth.html">
+            
+                <a href="auth.html">
+            
+                    
+                    登录效果实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.60" data-path="lifecycle.html">
+            
+                <a href="lifecycle.html">
+            
+                    
+                    生命周期函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.61" data-path="router-intro.html">
+            
+                <a href="router-intro.html">
+            
+                    
+                    React Router 前端路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.62" data-path="exact.html">
+            
+                <a href="exact.html">
+            
+                    
+                    exact 如何使用？ 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.63" data-path="link.html">
+            
+                <a href="link.html">
+            
+                    
+                    link 的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.64" data-path="hash-history.html">
+            
+                <a href="hash-history.html">
+            
+                    
+                    何时使用哈希历史？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.65" data-path="params.html">
+            
+                <a href="params.html">
+            
+                    
+                    路由传参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.66" data-path="axios.html">
+            
+                <a href="axios.html">
+            
+                    
+                    axios 请求 API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.67" data-path="server.html">
+            
+                <a href="server.html">
+            
+                    
+                    json-sever 搭建 API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.68" data-path="react-api.html">
+            
+                <a href="react-api.html">
+            
+                    
+                    React 中展示 API 数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.69" data-path="switch.html">
+            
+                <a href="switch.html">
+            
+                    
+                    switch 的作用是？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.70" data-path="ten-dogs.html">
+            
+                <a href="ten-dogs.html">
+            
+                    
+                    案例：十条小狗
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.71" data-path="todo.html">
+            
+                <a href="todo.html">
+            
+                    
+                    案例：TODO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.72" data-path="cart.html">
+            
+                <a href="cart.html">
+            
+                    
+                    案例：简单购物车
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.73" data-path="gitbook.html">
+            
+                <a href="gitbook.html">
+            
+                    
+                    Gitbook 使用方法？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.74" data-path="data-v.html">
+            
+                <a href="data-v.html">
+            
+                    
+                    数据可视化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.75" data-path="ant.html">
+            
+                <a href="ant.html">
+            
+                    
+                    蚂蚁设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.76" data-path="redux.html">
+            
+                <a href="redux.html">
+            
+                    
+                    redux 最简应用方案
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.77" data-path="101.md">
+            
+                <span>
+            
+                    
+                    十月一作业
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.78" data-path="vue-why.html">
+            
+                <a href="vue-why.html">
+            
+                    
+                    Vue 优势何在？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.79" data-path="vue-hello.md">
+            
+                <span>
+            
+                    
+                    Vue 的 Hello World
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.80" data-path="vue-comp.html">
+            
+                <a href="vue-comp.html">
+            
+                    
+                    Vue 的一个组件长什么样？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.81" data-path="vue-state.html">
+            
+                <a href="vue-state.html">
+            
+                    
+                    Vue 的 State 的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.82" data-path="input.html">
+            
+                <a href="input.html">
+            
+                    
+                    Vue 处理用户输入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.83" data-path="computed.md">
+            
+                <span>
+            
+                    
+                    计算属性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.84" data-path="vue-props.html">
+            
+                <a href="vue-props.html">
+            
+                    
+                    Vue 组件的 props 属性传入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.85" data-path="vue-router.html">
+            
+                <a href="vue-router.html">
+            
+                    
+                    Vue 路由器 vue-router
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.86" data-path="vuex-store.html">
+            
+                <a href="vuex-store.html">
+            
+                    
+                    把数据放进 Vuex 的 Store 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.87" data-path="mutation.html">
+            
+                <a href="mutation.html">
+            
+                    
+                    修改 store 中的数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.88" data-path="vuex-api.html">
+            
+                <a href="vuex-api.html">
+            
+                    
+                    读取 API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.89" data-path="vuex-load.html">
+            
+                <a href="vuex-load.html">
+            
+                    
+                    加载初始化数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.90" data-path="post.html">
+            
+                <a href="post.html">
+            
+                    
+                    添加文章数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.91" data-path="v-if.html">
+            
+                <a href="v-if.html">
+            
+                    
+                    v-if 解决加载时错误
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.92" data-path="relation.html">
+            
+                <a href="relation.html">
+            
+                    
+                    数据关联：评论对应各自博客
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.93" data-path="vue-vote.html">
+            
+                <a href="vue-vote.html">
+            
+                    
+                    vue 投票系统概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.94" data-path="login-form.html">
+            
+                <a href="login-form.html">
+            
+                    
+                    添加登录表单
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.95" data-path="vuex-login.html">
+            
+                <a href="vuex-login.html">
+            
+                    
+                    Vuex 配合实现登录功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.96" data-path="options.html">
+            
+                <a href="options.html">
+            
+                    
+                    添加投票项
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.97" data-path="vote.html">
+            
+                <a href="vote.html">
+            
+                    
+                    实现投票功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.98" data-path="vue-chart.html">
+            
+                <a href="vue-chart.html">
+            
+                    
+                    统计结果
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.99" data-path="vue-deploy.html">
+            
+                <a href="vue-deploy.html">
+            
+                    
+                    部署 voteup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.100" data-path="next-step.html">
+            
+                <a href="next-step.html">
+            
+                    
+                    进一步学习建议
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Vuex 配合实现登录功能</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x53EA;&#x6709;&#x524D;&#x7AEF;&#x7684;&#x767B;&#x5F55;&#x6548;&#x679C;&#xFF08;&#x9875;&#x9762;&#x5237;&#x65B0;&#x540E;&#x4F1A;&#x5931;&#x6548;&#xFF09;&#x3002;&#x914D;&#x5408; vuex &#x6765;&#x505A;&#x3002;</p>
+<p>&#x8FBE;&#x6210;&#x7684;&#x529F;&#x80FD;&#xFF1A;</p>
+<ul>
+<li>&#x7528;&#x6237;&#x8F93;&#x5165;&#x7528;&#x6237;&#x540D;&#x4E4B;&#x540E;&#xFF0C;&#x70B9;&#x4FDD;&#x5B58;&#x6309;&#x94AE;&#xFF0C;LoginForm &#x7684;&#x6587;&#x5B57;&#x5C31;&#x53D8;&#x6210;&#x4E86;&#x201C;&#x6211;&#x662F; XXX&#x201D;</li>
+<li>&#x4E0D;&#x8981;&#x9000;&#x51FA;&#x6309;&#x94AE;</li>
+<li>store &#x4E2D;&#x4FDD;&#x5B58; isAuthenticated &#xFF08;&#x662F;&#x5426;&#x5DF2;&#x6388;&#x6743;&#xFF0C;&#x503C;&#x4E3A; true &#x6216;&#x8005; false &#xFF09;&#xFF0C;&#x8FD8;&#x6709; currentUser &#xFF08;&#x5F53;&#x524D;&#x7528;&#x6237;&#xFF0C;&#x503C;&#x4E3A;&#x7528;&#x6237;&#x540D;&#x5B57;&#x7B26;&#x4E32;&#xFF09;</li>
+<li>&#x4E0A;&#x9762;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;&#x7684; module &#x540D;&#x4E3A; auth.js &#xFF08; auth &#x7684;&#x610F;&#x601D;&#x5C31;&#x4F1A;&#x8BA4;&#x8BC1;&#xFF09;</li>
+</ul>
+<h3 id="&#x5F15;&#x5165;-vuex">&#x5F15;&#x5165; vuex</h3>
+<p>&#x628A; vuex &#x5148;&#x5F15;&#x5165;&#x8FDB;&#x6765;</p>
+<pre><code>npm i vuex
+</code></pre><p>main.js &#x4E2D;&#x5BFC;&#x5165;</p>
+<pre><code class="lang-diff">  import Vue from &apos;vue&apos;
+  import App from &apos;./App&apos;
+<span class="hljs-addition">+import store from &apos;./store&apos;</span>
+
+ Vue.config.productionTip = false
+
+ /* eslint-disable no-new */
+ new Vue({
+   el: &apos;#app&apos;,
+   router,
+<span class="hljs-addition">+  store,</span>
+   template: &apos;&lt;App/&gt;&apos;,
+   components: { App }
+ })
+</code></pre>
+<p>store/index.js &#x5185;&#x5BB9;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue&apos;</span>
+<span class="hljs-keyword">import</span> Vuex <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vuex&apos;</span>
+<span class="hljs-keyword">import</span> auth <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./modules/auth&apos;</span>
+
+Vue.use(Vuex)
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Vuex.Store({
+  modules: {
+    auth
+  }
+})
+</code></pre>
+<p>store/modules/auth.js &#x7684;&#x5185;&#x5BB9;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> state = {
+  isAuthenticated: <span class="hljs-literal">false</span>,
+  currentUser: <span class="hljs-string">&apos;&apos;</span>
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {   
+  state
+}
+</code></pre>
+<p>&#x6709;&#x4E86;&#x4E0A;&#x9762;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5230; LoginForm.js &#x4E2D;&#x4F7F;&#x7528; store &#x4E2D;&#x7684;&#x6570;&#x636E;&#x4E86;</p>
+<pre><code class="lang-js">  computed: {
+    isAuthenticated: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.$store.state.auth.isAuthenticated
+    },
+    currentUser: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.$store.state.auth.currentUser
+    }
+  }
+</code></pre>
+<h3 id="&#x4FEE;&#x6539;-store">&#x4FEE;&#x6539; store</h3>
+<p>LoginForm &#x4E2D;&#x6DFB;&#x52A0;</p>
+<pre><code class="lang-js">&lt;input v-model=<span class="hljs-string">&quot;username&quot;</span> /&gt;
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;saveUser&quot;</span> &gt;</span>
+  &#x4FDD;&#x5B58;
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span>
+...
+methods: {
+  saveUser: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.$store.commit(<span class="hljs-string">&apos;login&apos;</span>, { username: <span class="hljs-keyword">this</span>.username })
+    <span class="hljs-keyword">this</span>.username = <span class="hljs-string">&apos;&apos;</span>
+  }
+},
+data: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> {
+    username: <span class="hljs-string">&apos;&apos;</span>
+  }
+},
+</code></pre>
+<p>store/modules/auth.js</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> mutations = {
+  login (state, { username }) {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;mutations&apos;</span>, username)
+    state.currentUser = username
+    state.isAuthenticated = <span class="hljs-literal">true</span>
+  }
+}
+...
+export <span class="hljs-keyword">default</span> {
+  ...
+  mutations
+}
+</code></pre>
+<h3 id="&#x4F7F;&#x7528;-v-if-&#x6761;&#x4EF6;&#x663E;&#x793A;">&#x4F7F;&#x7528; v-if &#x6761;&#x4EF6;&#x663E;&#x793A;</h3>
+<pre><code class="lang-js">&lt;template&gt;
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&apos;login-form&apos;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;!isAuthenticated&quot;</span>&gt;</span>
+      &#x4F60;&#x662F;
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;username&quot;</span> /&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;saveUser&quot;</span> &gt;</span>
+        &#x4FDD;&#x5B58;
+      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-else</span>&gt;</span>
+      &#x6211;&#x662F; {{ currentUser }}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span>
+</code></pre>
+<h3 id="&#x89C6;&#x9891;">&#x89C6;&#x9891;</h3>
+<p><a href="http://digicity-1253322599.costj.myqcloud.com/voteup-vuex-login.mp4" target="_blank">http://digicity-1253322599.costj.myqcloud.com/voteup-vuex-login.mp4</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="login-form.html" class="navigation navigation-prev " aria-label="Previous page: 添加登录表单">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="options.html" class="navigation navigation-next " aria-label="Next page: 添加投票项">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Vuex 配合实现登录功能","level":"1.95","depth":1,"next":{"title":"添加投票项","level":"1.96","depth":1,"path":"faq/options.md","ref":"./faq/options.md","articles":[]},"previous":{"title":"添加登录表单","level":"1.94","depth":1,"path":"faq/login-form.md","ref":"./faq/login-form.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"faq/vuex-login.md","mtime":"2017-10-22T11:09:28.260Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-30T21:29:56.486Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
