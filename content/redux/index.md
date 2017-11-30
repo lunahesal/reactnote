@@ -1,1 +1,1 @@
-haoqicat.com/redux-hello-v2
+- haoqicat.com/redux-hello-v2
